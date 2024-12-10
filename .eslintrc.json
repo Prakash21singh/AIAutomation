@@ -1,3 +1,20 @@
 {
-  "extends": "next/core-web-vitals"
+  "env": {
+    "es2021": true,
+    "node": true
+  },
+  "extends": ["eslint:recommended", "plugin:prettier/recommended"],
+  "plugins": ["prisma"],
+  "overrides": [
+    {
+      "files": ["*.prisma"],
+      "parser": "eslint-plugin-prisma/parser",
+      "rules": {
+        "prisma/prettier": "warn" // Ensure Prisma files follow Prettier rules
+      }
+    }
+  ],
+  "rules": {
+    "prettier/prettier": "warn"
+  }
 }
