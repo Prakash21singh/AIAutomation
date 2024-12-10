@@ -16,25 +16,16 @@ type Props = {
     trigger:React.ReactNode
     className?:string
     children:React.ReactNode
+    side :"left" | "right"
 }
 
-function Sheet({children,trigger,className}: Props) {
+function Sheet({children,trigger,className, side}: Props) {
   return (
     <ShadCnSheet>
-        <SheetTrigger>
+        <SheetTrigger className={className}>
             {trigger}
         </SheetTrigger>
-        <SheetContent className={cn("flex flex-col py-3",className)}>
-            <SheetTitle className='text-2xl my-4'>
-                Digital<span className='
-                bg-gradient-to-r
-                from-[#CC3BD4]
-                font-bold
-              to-[#D064AC]
-                bg-clip-text
-                text-transparent
-                '> Automation</span>
-            </SheetTitle>
+        <SheetContent side={side} className={cn("flex flex-col py-0")}>
             {children}
             <div className='px-16'>
                 <Separator
