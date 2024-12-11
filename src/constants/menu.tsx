@@ -9,6 +9,7 @@ type FieldProps = {
 type SidebarProps = {
     icon:React.ReactNode
 } & FieldProps
+
 export const SIDEBAR_MENU:SidebarProps[] = [
     {
         id:uuid(),

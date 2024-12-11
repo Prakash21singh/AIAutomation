@@ -9,7 +9,7 @@ import { LogoSmall } from '@/svgs/logo-small'
 import CreateAutomation from '../create-automation'
 import Search from './search'
 import Notification from './notification'
-import MainBreadCrumb from '../main-bread-crumb'
+import MainBreadCrumb from '../bread-crumbs/main-bread-crumb'
 
 type Props = {
     slug:string
@@ -20,7 +20,6 @@ function Infobar({slug}: Props) {
   const { page } = usePaths()
   const currentPage =  PAGE_BREAD_CRUMBS.includes(page) || page == slug
   
-  console.log({slug,page})
   return currentPage && <div className='flex flex-col'>
     <div className="flex gap-x-3 lg:gap-x-5 justify-end">
       <span className='lg:hidden flex items-center flex-1 gap-x-2'>
