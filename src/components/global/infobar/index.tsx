@@ -20,12 +20,12 @@ function Infobar({slug}: Props) {
   const { page } = usePaths()
   const currentPage =  PAGE_BREAD_CRUMBS.includes(page) || page == slug
   
-  return currentPage && <div className='flex flex-col'>
-    <div className="flex gap-x-3 lg:gap-x-5 justify-end">
+  return currentPage && <div className='flex flex-col '>
+    <div className="flex gap-x-3 lg:gap-x-5 justify-end ">
       <span className='lg:hidden flex items-center flex-1 gap-x-2'>
         <Sheet
           trigger={<Menu/>}
-          className="lg-hidden"
+          className="lg:hidden"
           side='left'
         > 
 

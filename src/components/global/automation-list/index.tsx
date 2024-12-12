@@ -5,7 +5,7 @@ import Link from 'next/link';
 import React, { useMemo } from 'react'
 import GradientButton from '../gradient-button';
 import { Button } from '@/components/ui/button';
-import { useQueryAutomation } from '@/hooks/use-queries';
+import { useQueryAutomations } from '@/hooks/use-queries';
 import CreateAutomation from '../create-automation';
 import { getMonth } from '@/lib/utils';
 import { useMutationDataState } from '@/hooks/use-mutation-data';
@@ -20,15 +20,18 @@ function AutomationList({}: Props) {
 
     console.log(latestVariable)
 
-    const {data} = useQueryAutomation();
+    const {data} = useQueryAutomations();
 
 
     const optimisticUiData = useMemo(() => {
+
       if ((latestVariable && latestVariable?.variables &&  data)) {
         const test = [latestVariable.variables, ...data.data]
         return { data: test }
       }
-      return data || { data: [] }
+      
+      return data || { data: [] };
+
     }, [latestVariable, data]);
 
 
@@ -45,7 +48,7 @@ function AutomationList({}: Props) {
   return (
     <div className='flex flex-col gap-y-3'>
         {
-          optimisticUiData.data!.map((automation)=>(
+          optimisticUiData.data.map((automation)=>(
             <Link href={`${pathname}/${automation.id}`} key={automation.id}
         className='bg-[#1D1D1D] hover:opacity-80 transition duration-100 rounded-xl p-5 border-[1px] radial--gradient--automations flex border-[#545454]'>
             <div className='flex flex-col flex-1 items-start'>

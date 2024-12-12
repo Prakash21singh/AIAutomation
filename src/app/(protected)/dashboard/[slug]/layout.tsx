@@ -2,7 +2,7 @@ import Infobar from '@/components/global/infobar';
 import Sidebar from '@/components/global/sidebar';
 import React from 'react'
 import {dehydrate, HydrationBoundary, QueryClient} from "@tanstack/react-query"
-import { PrefetchUserAutomation, PrefetchUserProfile } from '@/react-query/prefetch';
+import { PrefetchUserAutomations, PrefetchUserProfile } from '@/react-query/prefetch';
 type Props = {
     children:React.ReactNode;
     params:{slug : string}
@@ -20,7 +20,7 @@ async function Layout({
 
   await PrefetchUserProfile(query);
 
-  await PrefetchUserAutomation(query);
+  await PrefetchUserAutomations(query);
 
   return (
     <HydrationBoundary state={dehydrate(query)}>
