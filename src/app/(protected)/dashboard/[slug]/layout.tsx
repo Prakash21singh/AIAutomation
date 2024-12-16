@@ -25,9 +25,11 @@ async function Layout({
   return (
     <HydrationBoundary state={dehydrate(query)}>
 
-    <div className='p-3'>
+    <div className=''>
         {/* Sidebar */}
-        <Sidebar slug={params.slug}/>
+        <div className='p-2'>
+          <Sidebar slug={params.slug}/>
+        </div>
         {/* Infobar */}
         <div className='
           lg:ml-[250px]

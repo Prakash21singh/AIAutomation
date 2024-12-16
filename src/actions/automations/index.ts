@@ -1,7 +1,7 @@
 "use server"
 
 import { OnCurrentUser } from "../user"
-import { createAutomation, findAutomation, getAutomations, updateAutomation } from "./queries";
+import { addListener, createAutomation, findAutomation, getAutomations, updateAutomation } from "./queries";
 
 export const createAutomations = async (id?:string) =>{
 
@@ -90,5 +90,28 @@ export const updateAutomationName = async (
         return {status:404, data:"Opps! could not find automation"}
     } catch (error) {
         return {status:500, data:"Opps! somethig went wrong"}
+    }
+}
+
+
+
+export const saveListener = async function(
+    automationId:string,
+    listener:"MESSAGE" | "SMARTAI",
+    prompt:string,
+    reply?:string
+){
+
+    await OnCurrentUser()
+
+    try {
+        const create = await addListener(automationId,listener,prompt,reply)
+
+        if(create) return {status:200,data:"Listener Created"} 
+
+        return {status:404}
+
+    } catch (error) {
+        return {status:500}
     }
 }

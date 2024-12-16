@@ -6,8 +6,8 @@ type Props = {}
 
 function Page({}: Props) {
   return (
-    <div className='flex justify-center'>
-        <div className='flex flex-col w-full lg:w-8/12 gap-y-5 '>
+    <div className='flex justify-center flex-1  border'>
+        <div className='flex flex-col '>
             {INTEGRATION_CARDS.map((card,key)=>(
                 <IntegrationCard key={key} {...card}/>
             ))}

@@ -30,7 +30,7 @@ function Sidebar({slug}: Props) {
     border-[#545454] bg-gradient-to-b 
     from-[#768BDD] 
     via-[#171717]
-    to-[#768BDD] hidden bottom-0 top-0 m-3 rounded-3xl overflow-hidden
+    to-[#2c2f3b] hidden bottom-0 top-0 m-3 rounded-3xl overflow-hidden
     '>
         <div className='
         flex
@@ -46,7 +46,7 @@ function Sidebar({slug}: Props) {
         backdrop--blur__safari 
         backdrop-blur-3xl
         '> 
-            <div className='flex gap-x-2 items-center p-5 justify-center'>
+            <div className='flex mx-auto w-full gap-x-2 items-center p-5 justify-center'>
                 <LogoSmall/>
             </div>
             <div className='flex flex-col py-3'>

@@ -18,7 +18,6 @@ function AutomationList({}: Props) {
 
     const {latestVariable} = useMutationDataState(["create-automation"])
 
-    console.log(latestVariable)
 
     const {data} = useQueryAutomations();
 
