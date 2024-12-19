@@ -123,7 +123,16 @@ export const saveTrigger = async (automationId:string,trigger:string[]) => {
 
     try {
         const  create = await addTrigger(automationId,trigger)
+
+        if(!create) return {status:404}
+
+        return {
+            status:200,
+            data:create
+        }
     } catch (error) {
-        
+        return {
+            status:500
+        }
     }
 }
