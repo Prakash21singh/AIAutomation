@@ -10,6 +10,7 @@ function Billing({}: Props) {
         <PaymentCard
             current='FREE'
             label='FREE'
+            
         />
     </div>
   )

@@ -1,7 +1,7 @@
 "use server"
-
 import { OnCurrentUser } from "../user"
-import { addListener, createAutomation, findAutomation, getAutomations, updateAutomation } from "./queries";
+import { addListener, addTrigger, createAutomation, findAutomation, getAutomations, updateAutomation } from "./queries";
+import { currentUser } from "@clerk/nextjs/server";
 
 export const createAutomations = async (id?:string) =>{
 
@@ -113,5 +113,17 @@ export const saveListener = async function(
 
     } catch (error) {
         return {status:500}
+    }
+}
+
+
+
+export const saveTrigger = async (automationId:string,trigger:string[]) => {
+    await currentUser()
+
+    try {
+        const  create = await addTrigger(automationId,trigger)
+    } catch (error) {
+        
     }
 }

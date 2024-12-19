@@ -6,7 +6,7 @@ interface InitialStateTriggerProps {
         type?:"COMMENT" | "DM"
         keyword?:string
         types?:string[]
-        keywords:string[]
+        keywords?:string[]
     }
 }
 
